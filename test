@@ -1,1 +1,17 @@
-sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=read --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=15 -eta-interval=15
+# sequential read
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=read --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
+
+# sequential write
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=write --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
+
+# sequential mix 50%read
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=rw --rwmixread=50 --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
+
+# random Read
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=randread --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
+
+# random write
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=randwrite --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
+
+# random mix 50%Read
+sudo fio --filename=/tmp/fio.file2 --filesize=1g --direct=1 --rw=randrw --rwmixread=50 --bs=4k --ioengine=libaio --iodepth=256 --runtime=300 --numjobs=1 --time_based --group_reporting --name=iops-test-job --eta-newline=5 -eta-interval=2
